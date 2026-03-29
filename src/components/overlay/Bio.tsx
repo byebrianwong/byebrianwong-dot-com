@@ -1,3 +1,12 @@
+const linkStyle: React.CSSProperties = {
+  color: '#c4b5fd',
+  textDecoration: 'none',
+  borderBottom: '1px solid rgba(196, 181, 253, 0.3)',
+  pointerEvents: 'auto',
+  cursor: 'none',
+  transition: 'border-color 0.2s ease',
+}
+
 export default function Bio() {
   return (
     <div
@@ -5,7 +14,7 @@ export default function Bio() {
         position: 'fixed',
         bottom: '48px',
         left: '48px',
-        maxWidth: '380px',
+        maxWidth: '340px',
         color: '#f0eef6',
         zIndex: 10,
         pointerEvents: 'none',
@@ -25,13 +34,17 @@ export default function Bio() {
       <p
         style={{
           fontSize: '14px',
-          lineHeight: 1.6,
+          lineHeight: 1.7,
           opacity: 0.5,
           fontWeight: 300,
           letterSpacing: '0.02em',
         }}
       >
-        Building things on the internet. Explore the floating cards to see what I've been working on.
+        Building enjoyable things. Currently{' '}
+        <a href="https://www.chromatic.com" target="_blank" rel="noopener noreferrer" style={linkStyle}>@chromatic</a>
+        {' '}and{' '}
+        <a href="https://storybook.js.org" target="_blank" rel="noopener noreferrer" style={linkStyle}>@storybook</a>
+        , previously healthtech AI and edtech (Y Combinator).
       </p>
     </div>
   )
