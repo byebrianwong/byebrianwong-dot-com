@@ -52,8 +52,8 @@ export default function App() {
       />
       <Canvas
         camera={{ position: [0, 0, 8], fov: 50 }}
-        gl={{ antialias: true, alpha: true }}
-        dpr={[1, 2]}
+        gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
+        dpr={[1, 1.5]}
         style={{ position: 'fixed', inset: 0, pointerEvents: 'none' }}
       >
         <Scene reducedMotion={reducedMotion} isMobile={isMobile} />

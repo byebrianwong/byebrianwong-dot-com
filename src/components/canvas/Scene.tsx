@@ -67,10 +67,11 @@ export default function Scene({ reducedMotion, isMobile }: Props) {
       )}
       <EffectComposer>
         <Bloom
-          luminanceThreshold={0.2}
-          luminanceSmoothing={0.9}
-          intensity={0.85}
+          luminanceThreshold={0.35}
+          luminanceSmoothing={0.85}
+          intensity={0.55}
           mipmapBlur
+          radius={0.7}
         />
       </EffectComposer>
     </>
