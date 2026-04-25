@@ -13,7 +13,7 @@ import { useMousePosition } from '../../hooks/useMousePosition'
 
 const PARALLAX_X = 0.35
 const PARALLAX_Y = 0.22
-const PARALLAX_LERP = 0.045
+const PARALLAX_LERP = 0.08
 
 interface Props {
   reducedMotion: boolean
@@ -46,8 +46,7 @@ export default function Scene({ reducedMotion, isMobile }: Props) {
 
   return (
     <>
-      <ambientLight intensity={0.15} />
-      <directionalLight position={[5, 5, 5]} intensity={0.3} color="#e8e0ff" />
+      {/* No lights — every material in this scene is unlit (basic/points/line). */}
       <StarField reducedMotion={reducedMotion} />
       <Particles reducedMotion={reducedMotion} />
       {!isMobile && (
@@ -67,10 +66,11 @@ export default function Scene({ reducedMotion, isMobile }: Props) {
       )}
       <EffectComposer>
         <Bloom
-          luminanceThreshold={0.35}
+          luminanceThreshold={0.45}
           luminanceSmoothing={0.85}
           intensity={0.55}
           mipmapBlur
+          levels={5}
           radius={0.7}
         />
       </EffectComposer>

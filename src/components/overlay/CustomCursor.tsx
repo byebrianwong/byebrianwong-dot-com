@@ -177,7 +177,7 @@ export default function CustomCursor() {
   const trailPos = useRef(
     Array.from({ length: TRAIL_COUNT }, () => ({ x: 0, y: 0 }))
   )
-  const [isTouch, setIsTouch] = useState(false)
+  const [isTouch] = useState(() => window.matchMedia('(pointer: coarse)').matches)
   const [isHovering, setIsHovering] = useState(false)
   const [expression, setExpression] = useState<Expression>('happy')
   const raf = useRef<number>(0)
@@ -194,14 +194,22 @@ export default function CustomCursor() {
   }, [])
 
   useEffect(() => {
-    if (window.matchMedia('(pointer: coarse)').matches) {
-      setIsTouch(true)
-      return
+    if (isTouch) return
+
+    let rafScheduled = false
+    let lastMoveAt = performance.now()
+
+    const scheduleAnimate = () => {
+      if (rafScheduled) return
+      rafScheduled = true
+      raf.current = requestAnimationFrame(animate)
     }
 
     const onMove = (e: MouseEvent) => {
       pos.current.x = e.clientX
       pos.current.y = e.clientY
+      lastMoveAt = performance.now()
+      scheduleAnimate()
     }
 
     const onOver = (e: MouseEvent) => {
@@ -222,15 +230,25 @@ export default function CustomCursor() {
     document.addEventListener('mouseover', onOver, { passive: true })
     document.addEventListener('mouseout', onOut, { passive: true })
 
-    const animate = () => {
+    const CONVERGE_PX_SQUARED = 0.25 // (0.5px)^2 — threshold to consider trail at rest
+    const IDLE_AFTER_MS = 180 // park RAF when no movement this long AND trails converged
+
+    function animate() {
+      rafScheduled = false
+
       if (cursorRef.current) {
         cursorRef.current.style.transform = `translate3d(${pos.current.x}px, ${pos.current.y}px, 0)`
       }
 
+      let trailConverged = true
       for (let i = 0; i < TRAIL_COUNT; i++) {
         const prev = i === 0 ? pos.current : trailPos.current[i - 1]
-        trailPos.current[i].x += (prev.x - trailPos.current[i].x) * (0.2 - i * 0.025)
-        trailPos.current[i].y += (prev.y - trailPos.current[i].y) * (0.2 - i * 0.025)
+        const dx = prev.x - trailPos.current[i].x
+        const dy = prev.y - trailPos.current[i].y
+        const factor = 0.2 - i * 0.025
+        trailPos.current[i].x += dx * factor
+        trailPos.current[i].y += dy * factor
+        if (dx * dx + dy * dy > CONVERGE_PX_SQUARED) trailConverged = false
         const el = trailRefs.current[i]
         if (el) {
           el.style.transform = `translate3d(${trailPos.current[i].x}px, ${trailPos.current[i].y}px, 0)`
@@ -239,10 +257,15 @@ export default function CustomCursor() {
 
       checkExpressionChange()
 
-      raf.current = requestAnimationFrame(animate)
+      // Park RAF when mouse is idle AND trail has converged; mousemove restarts it.
+      const now = performance.now()
+      const idle = now - lastMoveAt > IDLE_AFTER_MS
+      if (idle && trailConverged) return
+
+      scheduleAnimate()
     }
 
-    raf.current = requestAnimationFrame(animate)
+    scheduleAnimate()
 
     return () => {
       window.removeEventListener('mousemove', onMove)
@@ -250,7 +273,7 @@ export default function CustomCursor() {
       document.removeEventListener('mouseout', onOut)
       cancelAnimationFrame(raf.current)
     }
-  }, [checkExpressionChange])
+  }, [checkExpressionChange, isTouch])
 
   if (isTouch) return null
 
