@@ -33,7 +33,7 @@ const apps: AppData[] = [
     name: 'Instant Search',
     description: 'Keep inflow with inline browser AI descriptions',
     href: null,
-    position: [-1.0, 0.2, -0.5],
+    position: [-1.0, 0.0, -0.5],
     color: '#a8e6a3',
   },
 ]
