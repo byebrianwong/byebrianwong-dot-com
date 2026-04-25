@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Soft cosmic glow behind the bear -->
+  <defs>
+    <radialGradient id="g" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#c4b5fd" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#c4b5fd" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="16" cy="16" r="16" fill="url(#g)"/>
+  <!-- Ears -->
+  <circle cx="9" cy="9.5" r="4" fill="#c4b5fd"/>
+  <circle cx="23" cy="9.5" r="4" fill="#c4b5fd"/>
+  <circle cx="9" cy="9.5" r="2" fill="#0a0a0f" opacity="0.5"/>
+  <circle cx="23" cy="9.5" r="2" fill="#0a0a0f" opacity="0.5"/>
+  <!-- Head -->
+  <circle cx="16" cy="18" r="11" fill="#c4b5fd"/>
+  <!-- Eyes -->
+  <circle cx="11.6" cy="17" r="1.6" fill="#0a0a0f"/>
+  <circle cx="20.4" cy="17" r="1.6" fill="#0a0a0f"/>
+  <circle cx="12.2" cy="16.4" r="0.55" fill="#fff" opacity="0.85"/>
+  <circle cx="21" cy="16.4" r="0.55" fill="#fff" opacity="0.85"/>
+  <!-- Snout -->
+  <ellipse cx="16" cy="21.6" rx="3.8" ry="2.6" fill="#e8e0ff" opacity="0.85"/>
+  <!-- Nose -->
+  <ellipse cx="16" cy="20.4" rx="1.3" ry="0.95" fill="#0a0a0f" opacity="0.85"/>
+  <!-- Smile -->
+  <path d="M14.5 22.5 Q16 24 17.5 22.5" stroke="#0a0a0f" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.6"/>
+</svg>
