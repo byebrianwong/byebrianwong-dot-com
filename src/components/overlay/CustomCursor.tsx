@@ -209,6 +209,10 @@ export default function CustomCursor() {
       pos.current.x = e.clientX
       pos.current.y = e.clientY
       lastMoveAt = performance.now()
+      // Update bear synchronously so it tracks the OS cursor 1:1 — RAF only drives the trail.
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`
+      }
       scheduleAnimate()
     }
 
@@ -294,6 +298,7 @@ export default function CustomCursor() {
           marginTop: `${-size / 2}px`,
           pointerEvents: 'none',
           zIndex: 9999,
+          willChange: 'transform',
           transition: 'width 0.2s ease, height 0.2s ease, margin 0.2s ease',
         }}
       >
@@ -316,6 +321,7 @@ export default function CustomCursor() {
             background: `rgba(196, 181, 253, ${0.35 - i * 0.06})`,
             pointerEvents: 'none',
             zIndex: 9998,
+            willChange: 'transform',
           }}
         />
       ))}
