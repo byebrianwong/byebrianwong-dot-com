@@ -1,0 +1,29 @@
+/* Storybook canvas backdrop — matches the production cosmic gradient. */
+
+.sb-cosmic-backdrop {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    #1a1230 0%,
+    #0c0a1c 38%,
+    #050309 80%
+  );
+  color: #f0eef6;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  /* Allow inner content to scroll for mobile-style stories. */
+  overflow-y: auto;
+}
+
+/* Canvas wrapper used by 3D stories. */
+.sb-canvas-stage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Re-enable a real cursor inside Storybook so devs can hover/click controls. */
+.sb-cosmic-backdrop * {
+  cursor: revert !important;
+}
