@@ -26,14 +26,14 @@ const apps: AppData[] = [
     name: 'Piano Pitch',
     description: 'Relative pitch training game',
     href: null,
-    position: [1.5, -1.4, -0.7],
+    position: [1.9, -1.7, -0.7],
     color: '#7eb8ff',
   },
   {
     name: 'Instant Search',
     description: 'Keep inflow with inline browser AI descriptions',
     href: null,
-    position: [-1.0, -1.7, -0.5],
+    position: [-1.0, 0.2, -0.5],
     color: '#a8e6a3',
   },
 ]
