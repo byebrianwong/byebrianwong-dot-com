@@ -165,20 +165,34 @@ body,
   border: 1px solid rgba(255, 255, 255, 0.07);
   text-decoration: none;
   color: #f0eef6;
+  /* Release transitions: smooth fade back to resting state */
   transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.2s ease,
-    box-shadow 0.25s ease;
+    background 0.28s ease,
+    border-color 0.28s ease,
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.28s ease;
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
+/* Press feedback fires instantly — no transition on the way in */
 .mobile-app-card:active {
-  background: rgba(255, 255, 255, 0.08);
+  transition: none;
+  background: rgba(255, 255, 255, 0.12);
   border-color: var(--orb);
-  transform: scale(0.985);
-  box-shadow: 0 0 28px color-mix(in srgb, var(--orb) 32%, transparent);
+  transform: scale(0.97);
+  box-shadow:
+    0 0 36px color-mix(in srgb, var(--orb) 45%, transparent),
+    inset 0 0 18px color-mix(in srgb, var(--orb) 18%, transparent);
+}
+
+.mobile-app-card:active .mobile-app-icon {
+  filter:
+    drop-shadow(0 0 8px var(--orb))
+    drop-shadow(0 0 18px color-mix(in srgb, var(--orb) 50%, transparent));
 }
 
 .mobile-app-icon {
