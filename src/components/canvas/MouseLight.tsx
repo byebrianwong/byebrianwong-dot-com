@@ -3,9 +3,9 @@ import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useMousePosition } from '../../hooks/useMousePosition'
 
-const TRAIL_LENGTH = 18
+const TRAIL_LENGTH = 10
 const LIGHT_DEPTH = 4
-const LERP_SPEED = 0.07
+const LERP_SPEED = 0.16
 
 export default function MouseLight() {
   const mouse = useMousePosition()
@@ -70,7 +70,7 @@ export default function MouseLight() {
           key={i}
           ref={(el) => { trailRefs.current[i] = el }}
         >
-          <sphereGeometry args={[0.01 + (1 - i / TRAIL_LENGTH) * 0.02, 6, 6]} />
+          <sphereGeometry args={[0.012 + (1 - i / TRAIL_LENGTH) * 0.02, 4, 4]} />
           <meshBasicMaterial
             color="#c4b5fd"
             transparent

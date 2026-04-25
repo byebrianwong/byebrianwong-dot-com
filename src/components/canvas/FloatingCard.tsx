@@ -218,7 +218,7 @@ export default function FloatingCard({ app, index, reducedMotion }: Props) {
     >
       <group ref={groupRef} position={app.position} scale={0}>
         <mesh ref={orbMeshRef} position={[0, ORB_Y, 0]}>
-          <sphereGeometry args={[0.075, 24, 24]} />
+          <sphereGeometry args={[0.075, 18, 18]} />
           <meshBasicMaterial
             ref={orbMatRef}
             color={app.color}
@@ -228,7 +228,7 @@ export default function FloatingCard({ app, index, reducedMotion }: Props) {
           />
         </mesh>
         <mesh ref={haloMeshRef} position={[0, ORB_Y, 0]}>
-          <sphereGeometry args={[0.18, 16, 16]} />
+          <sphereGeometry args={[0.18, 12, 12]} />
           <meshBasicMaterial
             ref={haloMatRef}
             color={app.color}
@@ -239,7 +239,7 @@ export default function FloatingCard({ app, index, reducedMotion }: Props) {
           />
         </mesh>
         <mesh ref={ringMeshRef} position={[0, ORB_Y, 0]}>
-          <ringGeometry args={[0.16, 0.2, 48]} />
+          <ringGeometry args={[0.16, 0.2, 36]} />
           <meshBasicMaterial
             ref={ringMatRef}
             color={app.color}

@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
-const COUNT = 600
+const COUNT = 380
 const RADIUS_MIN = 22
 const RADIUS_MAX = 32
 const TARGET_OPACITY = 0.55
