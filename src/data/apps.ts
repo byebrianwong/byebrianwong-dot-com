@@ -35,14 +35,14 @@ const apps: AppData[] = [
     description:
       'AI tracking for health, activities, meds, and more for your pet',
     href: null,
-    position: [2.6, -1.0, -1.0],
+    position: [2.6, -1.15, -1.0],
     color: '#cea9ff',
   },
   {
     name: 'Piano Pitch',
     description: 'Relative pitch training game',
     href: null,
-    position: [1.9, -1.7, -0.7],
+    position: [1.9, -1.95, -0.7],
     color: '#7eb8ff',
   },
   {

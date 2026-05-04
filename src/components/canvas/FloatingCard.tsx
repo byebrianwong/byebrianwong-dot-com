@@ -365,10 +365,6 @@ export default function FloatingCard({ app, index, reducedMotion }: Props) {
                 fontWeight: 300,
                 paddingLeft: '28px',
                 transition: 'opacity 0.25s ease',
-                display: '-webkit-box',
-                WebkitLineClamp: 4,
-                WebkitBoxOrient: 'vertical',
-                overflow: 'hidden',
               }}
             >
               {app.description}
