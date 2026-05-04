@@ -12,7 +12,6 @@ export default function Bio() {
         pointerEvents: 'none',
       }}
     >
-      <div className="bio-hint">move your cursor</div>
       <h1
         style={{
           fontFamily: "'Fraunces', Georgia, serif",
