@@ -41,33 +41,6 @@ body,
   transform: translateY(0);
 }
 
-.bio-hint {
-  font-size: 10px;
-  font-weight: 300;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(196, 181, 253, 0.6);
-  margin-bottom: 18px;
-  opacity: 0;
-  animation: hint-pulse 7s ease-out 2.4s 1 forwards;
-  pointer-events: none;
-}
-
-@keyframes hint-pulse {
-  0% {
-    opacity: 0;
-  }
-  18% {
-    opacity: 0.55;
-  }
-  82% {
-    opacity: 0.55;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 .bio-link {
   color: #c4b5fd;
   text-decoration: none;
@@ -88,10 +61,6 @@ body,
     transition: none;
     opacity: 1;
     transform: none;
-  }
-  .bio-hint {
-    animation: none;
-    opacity: 0;
   }
 }
 
