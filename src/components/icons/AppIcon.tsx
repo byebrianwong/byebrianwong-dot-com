@@ -111,6 +111,66 @@ export default function AppIcon({ name, size = 20 }: Props) {
           </text>
         </svg>
       )
+    case 'Do Done':
+      return (
+        <svg
+          {...COMMON_PROPS}
+          width={size}
+          height={size}
+          viewBox="0 0 20 20"
+          aria-hidden
+        >
+          <rect
+            x="2.8"
+            y="2.8"
+            width="14.4"
+            height="14.4"
+            rx="2.6"
+            stroke="currentColor"
+            strokeWidth="1.4"
+          />
+          <path
+            d="M6.2 10.4 L9 13.1 L13.9 7.3"
+            stroke="currentColor"
+            strokeWidth="1.7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      )
+    case 'Pet Journal':
+      return (
+        <svg
+          {...COMMON_PROPS}
+          width={size}
+          height={size}
+          viewBox="0 0 20 20"
+          aria-hidden
+        >
+          {/* Main paw pad */}
+          <ellipse cx="10" cy="14" rx="3.7" ry="3" fill="currentColor" />
+          {/* Inner toe pads */}
+          <ellipse cx="6" cy="8.6" rx="1.4" ry="1.9" fill="currentColor" />
+          <ellipse cx="14" cy="8.6" rx="1.4" ry="1.9" fill="currentColor" />
+          {/* Outer toe pads */}
+          <ellipse
+            cx="2.9"
+            cy="11.4"
+            rx="1.15"
+            ry="1.55"
+            fill="currentColor"
+            transform="rotate(-22 2.9 11.4)"
+          />
+          <ellipse
+            cx="17.1"
+            cy="11.4"
+            rx="1.15"
+            ry="1.55"
+            fill="currentColor"
+            transform="rotate(22 17.1 11.4)"
+          />
+        </svg>
+      )
     case 'Instant Search':
       return (
         <svg
