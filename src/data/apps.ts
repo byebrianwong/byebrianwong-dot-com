@@ -16,26 +16,26 @@ const apps: AppData[] = [
     color: '#f6c554',
   },
   {
-    name: 'Do Done',
-    description:
-      'An AI-native to-do / tasks app. Todoist and Notion were too limited and slow inside Claude Code and Codex, so built an app designed to be used inside ADEs, and accessible via mobile',
-    href: null,
-    position: [0.0, 2.2, -1.2],
-    color: '#ff9966',
-  },
-  {
     name: 'Second Guess',
     description: "Real-time party game where you don't want to be #1",
     href: 'https://secondguess.byebrianwong.com',
-    position: [1.7, 1.4, -1.6],
+    position: [0.0, 2.2, -1.2],
     color: '#ff8fa3',
+  },
+  {
+    name: 'Do Done',
+    description:
+      'An AI-native to-do / tasks app designed specifically for Claude Code and Codex',
+    href: null,
+    position: [1.7, 1.4, -1.6],
+    color: '#ff9966',
   },
   {
     name: 'Pet Journal',
     description:
-      'Use AI to help track everything from everyday events (new friend at the park), life milestones (got "sit pretty" looking good), medications, and health metrics from Fi collar',
+      'AI tracking for health, activities, meds, and more for your pet',
     href: null,
-    position: [2.6, -0.7, -1.0],
+    position: [2.6, -1.0, -1.0],
     color: '#cea9ff',
   },
   {
